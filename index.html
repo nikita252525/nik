@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Расчет БЖУ</title>
+  <link rel="stylesheet" href="/mile-stone-one/css/style.css">
+  <style>
+    body {
+      font-family: ARIAL BLACK, sans-serif;
+	  background-image: url('https://ochistis.ru/wp-content/uploads/2022/05/zd2.jpg');
+      margin: 0;
+      padding: 0;
+      background-color: 
+      background-repeat: repeat;
+      color: white;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input {
+      width: 98%;
+      padding: 6px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+	  font-family: ARIAL BLACK, sans-serif;
+    }
+    #result {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Расчет БЖУ</h1>
+    <form>
+      <label for="weight">Ваш вес:</label>
+	  <input id="weight" name="weight" autocomplete="off"required>
+      <button type="button" onclick="calculateMacros()">Рассчитать </button>
+	  <label class="custom-field">
+    </form>
+    <div id="result"></div>
+  </div>
+  <script>
+    function calculateMacros() {
+      var weight = document.getElementById("weight").value;
+      var protein = weight * 2;
+      var fat = weight * 1;
+      var carbs = weight * 2.7;
+
+      document.getElementById("result").innerHTML = "Ваше БЖУ:<br>" +
+                                                   "Белки: " + protein.toFixed(2) + " грамм<br>" +
+                                                   "Жиры: " + fat.toFixed(2) + " грамм<br>" +
+                                                   "Углеводы: " + carbs.toFixed(2) + " грамм";
+    }
+  </script>
+</body>
+</html>
