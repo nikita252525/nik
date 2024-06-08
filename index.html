@@ -50,14 +50,19 @@
     }
   </style>
 </head>
+<script type="text/javascript">
+    window.onbeforeunload = function() {
+        return "Dude, are you sure you want to leave? Think of the kittens!";
+    }
+</script>
 <body>
   <div class="container">
     <h1>Расчет белков, жиров, углеводов</h1>
-    <form>
+    <form id="myForm">
       <label for="weight">Ваш вес:</label>
 	  <input id="weight" name="weight" autocomplete="off"required>
-      <button type="button" onclick="calculateMacros()">Рассчитать </button>
-	  <label class="custom-field">
+      <button id="myButton" onclick="calculateMacros()">Рассчитать</button>
+	  <label class="custom-field"> 
     </form>
     <div id="result"></div>
   </div>
@@ -67,7 +72,6 @@
       var protein = weight * 2;
       var fat = weight * 1;
       var carbs = weight * 2.7;
-
       document.getElementById("result").innerHTML = "Ваше БЖУ:<br>" +
                                                    "Белки: " + protein.toFixed(2) + " грамм<br>" +
                                                    "Жиры: " + fat.toFixed(2) + " грамм<br>" +
