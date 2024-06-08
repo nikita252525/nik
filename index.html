@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Расчет белков, жиров, углеводов</title>
+  <title>Расчет белков, жиров и углеводов</title>
   <link rel="stylesheet" href="/mile-stone-one/css/style.css">
   <style>
 	  body {
@@ -49,20 +49,22 @@
       margin-top: 30px;
     }
   </style>
-</head>
-<body>
+  </head>
+  <body>
   <div class="container">
-    <h1>Расчет белков, жиров, углеводов</h1>
-    <form>
-      <label for="weight">Ваш вес:</label>
-	  <input id="weight" name="weight" type="text"  class="search" onkeydown="search(this)" autocomplete="off"required> 
-      <button type="button" onclick="calculateMacros()">Рассчитать </button>
-	  <label class="custom-field">
-    </form>
-    <div id="result"></div>
+  <h1>Расчет белков, жиров и углеводов</h1>
+
+  <label for="weight">Ваш вес в килограммах:</label>
+  <input  id="weight" autocomplete="off">
+
+  <button onclick="calculateBJU()">Рассчитать</button>
+  
+  <label class="custom-field">
+  <div id="result"></div>
   </div>
+  
   <script>
-    function calculateMacros() {
+    function calculateBJU() {
       var weight = document.getElementById("weight").value;
       var protein = weight * 2;
       var fat = weight * 1;
@@ -72,6 +74,13 @@
                                                    "Жиры: " + fat.toFixed(2) + " грамм<br>" +
                                                    "Углеводы: " + carbs.toFixed(2) + " грамм";
     }
+
+    document.getElementById("weight").addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        calculateBJU();
+      }
+    });
   </script>
+
 </body>
 </html>
