@@ -50,19 +50,14 @@
     }
   </style>
 </head>
-<script type="text/javascript">
-    window.onbeforeunload = function() {
-        return "Dude, are you sure you want to leave? Think of the kittens!";
-    }
-</script>
 <body>
   <div class="container">
     <h1>Расчет белков, жиров, углеводов</h1>
-    <form id="myForm">
+    <form>
       <label for="weight">Ваш вес:</label>
-	  <input id="weight" name="weight" autocomplete="off"required>
-      <button id="myButton" onclick="calculateMacros()">Рассчитать</button>
-	  <label class="custom-field"> 
+	  <input id="weight" name="weight" type="text"  class="search" onkeydown="search(this)" autocomplete="off"required> 
+      <button type="button" onclick="calculateMacros()">Рассчитать </button>
+	  <label class="custom-field">
     </form>
     <div id="result"></div>
   </div>
