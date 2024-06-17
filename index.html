@@ -2,83 +2,128 @@
 <html>
 <head>
   <title>Расчет белков, жиров и углеводов</title>
-  <link rel="stylesheet" href="/mile-stone-one/css/style.css">
   <style>
-body {
-      background-repeat: repeat;
-      color: white;
-	  font-family: ARIAL BLACK, sans-serif;
-      background-image: url(https://ochistis.ru/wp-content/uploads/2022/05/zd2.jpg);
+    body {
+      background-image: url("https://img.freepik.com/premium-photo/one-person-chops-various-fresh-vegetables-skillfully-master_192345-173.jpg?size=626&ext=jpg&ga=GA1.1.537138700.1716470488&semt=ais_user"); 
       background-repeat: no-repeat;
       background-size: cover;
-	  background-size: 110%;
-	  background-size: 110%;
-      width: 100%;
-      height: 100%;
+      background-position: center;
+      color: white;
+      font-family: 'Arial Black', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-	  .container {
+
+    .container {
       max-width: 600px;
-      margin: 0 auto;
       padding: 40px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7); 
       border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-      h1 {
+
+    h1 {
       text-align: center;
       margin-bottom: 30px;
+      font-size: 2.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
     }
-      label {
+
+    label {
       display: block;
       margin-bottom: 15px;
+      font-weight: bold;
     }
-      input {
+
+    input {
       width: 98%;
-      padding: 6px;
+      padding: 10px;
       margin-bottom: 30px;
       border-radius: 5px;
       border: none;
+      background-color: rgba(255, 255, 255, 0.2); 
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
     }
-      button {
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.6); 
+    }
+
+    button {
       display: block;
       margin: 0 auto;
-	  margin-top: 50px;
-      padding: 10px 20px;
+      margin-top: 50px;
+      padding: 12px 30px;
       background-color: #333;
       color: white;
       border: none;
       border-radius: 100px;
       cursor: pointer;
-	  font-family: ARIAL BLACK, sans-serif;
+      font-family: 'Arial Black', sans-serif;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
     }
-      #result {
+
+    button:hover {
+      background-color: #666; 
+    }
+
+    #result {
       text-align: center;
       font-size: 24px;
       margin-top: 20px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     }
-      input[type='range'] {
+
+    input[type='range'] {
       -webkit-appearance: none;
       width: 100%;
+      height: 8px;
+      background: #d3d3d3;
+      outline: none;
+      border-radius: 10px;
       margin: 5px 0;
     }
-      input[type='range']:focus {
+
+    input[type='range']:focus {
       outline: none;
-      }
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    input[type='range']::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      cursor: pointer;
+      border-radius: 50%;
+    }
   </style>
-  </head>
-  <body>
+</head>
+<body>
   <div class="container">
-  <h1>Расчет белков, жиров и углеводов</h1>
+    <h1>Расчет белков, жиров и углеводов</h1>
 
-  <label for="quantity">Ваш вес в килограммах:</label> 
-  <input id="weight" type="range" value="1" min="1" max="500" oninput="this.nextElementSibling.value = this.value">
-  <output></output>
+    <label for="quantity">Ваш вес в килограммах:</label>
+    <input id="weight" type="range" value="1" min="1" max="500" oninput="this.nextElementSibling.value = this.value">
+    <output></output>
 
-  <button onclick="calculateBJU()">Рассчитать</button>
+    <button onclick="calculateBJU()">Рассчитать</button>
 
-  <label class="custom-field">
-  <div id="result"></div>
+    <div id="result"></div>
   </div>
-  
+
   <script>
     function calculateBJU() {
       var weight = document.getElementById("weight").value;
@@ -86,17 +131,16 @@ body {
       var fat = weight * 1;
       var carbs = weight * 2.7;
       document.getElementById("result").innerHTML = "Ваша суточная норма:<br>" +
-                                                   "Белки: " + protein.toFixed(2) + " грамм<br>" +
-                                                   "Жиры: " + fat.toFixed(2) + " грамм<br>" +
-                                                   "Углеводы: " + carbs.toFixed(2) + " грамм";
+        "Белки: " + protein.toFixed(2) + " грамм<br>" +
+        "Жиры: " + fat.toFixed(2) + " грамм<br>" +
+        "Углеводы: " + carbs.toFixed(2) + " грамм";
     }
 
-    document.getElementById("weight").addEventListener("keyup", function(event) {
+    document.getElementById("weight").addEventListener("keyup", function (event) {
       if (event.key === "Enter") {
         calculateBJU();
       }
     });
   </script>
-  
 </body>
 </html>
